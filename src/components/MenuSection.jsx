@@ -16,7 +16,7 @@ const MENU_ITEMS = [
     id: 1,
     category: 'brunch',
     name: 'Avocado Sourdough Toast',
-    price: 340,
+    price: 14,
     badge: 'Top Rated',
     tag: 'Vegetarian Friendly',
     desc: 'Crispy toasted rustic sourdough, fresh Hass avocado fans, organic poached egg with golden runny yolk, chili flakes, pumpkin seeds, and microgreens.',
@@ -26,7 +26,7 @@ const MENU_ITEMS = [
     id: 2,
     category: 'grill',
     name: 'Smoked Brisket & Chimichurri',
-    price: 560,
+    price: 22,
     badge: "Chef's Special",
     tag: 'Wood-Fired Smoke',
     desc: 'Succulent 12-hour wood-smoked tender brisket slices glazed with roasted jus, served with punchy Argentine chimichurri and garlic baby potatoes.',
@@ -36,7 +36,7 @@ const MENU_ITEMS = [
     id: 3,
     category: 'brunch',
     name: 'Skillet Shakshoukah',
-    price: 360,
+    price: 15,
     badge: 'Guest Favorite',
     tag: 'Hot Cast-Iron',
     desc: 'Sizzling cast-iron skillet with spiced San Marzano tomato & bell pepper sauce, baked farm eggs, creamy feta crumble, and warm sourdough slices.',
@@ -46,7 +46,7 @@ const MENU_ITEMS = [
     id: 4,
     category: 'dessert',
     name: 'Burnt Basque Cheesecake',
-    price: 310,
+    price: 11,
     badge: 'Bakery Pick',
     tag: 'Fresh Daily',
     desc: 'San Sebastian style caramelized outer crust with an ultra-creamy, velvety molten center. Served with whipped cream or hot espresso pour.',
@@ -56,7 +56,7 @@ const MENU_ITEMS = [
     id: 5,
     category: 'coffee',
     name: 'Nitro Cold Brew & Tonic',
-    price: 260,
+    price: 8,
     badge: 'In-House Roast',
     tag: 'Single Origin Arabica',
     desc: '18-hour cold steeped single origin Arabica infused with nitrogen for a silky Guinness-like head, sweet cocoa finish, and zero bitterness.',
@@ -66,7 +66,7 @@ const MENU_ITEMS = [
     id: 6,
     category: 'dessert',
     name: 'Molten Chocolate Pancakes',
-    price: 320,
+    price: 13,
     badge: 'Sweet Tooth',
     tag: 'Brioche Stack',
     desc: 'Golden fluffy pancakes stacked high, smothered with warm Belgian dark chocolate sauce, fresh banana coins, raspberries, and toasted hazelnut crunch.',
@@ -156,7 +156,7 @@ export default function MenuSection() {
                       {item.name}
                     </h3>
                     <span className="font-extrabold text-lg sm:text-xl text-neutral-950 shrink-0">
-                      &#8377;{item.price}
+                      ${item.price}
                     </span>
                   </div>
 

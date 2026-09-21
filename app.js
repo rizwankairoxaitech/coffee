@@ -346,7 +346,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const SPOTLIGHT_ITEM = {
     id: 99,
     name: 'Organic Brunch Blend Tin (250g)',
-    price: 480,
+    price: 18,
     img: 'assets/images/packaging.jpg'
   };
 
@@ -376,7 +376,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const price = SPOTLIGHT_ITEM.price * spotlightCount;
       spotlightAddToCartBtn.innerHTML = `
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-        Add Tin to Order &middot; &#8377;${price}
+        Add Tin to Order &middot; $${price}
       `;
     }
   }
@@ -445,9 +445,9 @@ document.addEventListener('DOMContentLoaded', () => {
           <p style="font-size: 0.85rem;">Add some smoked brisket, avocado toast or pour-over coffee!</p>
         </div>
       `;
-      cartSubtotalEl.innerHTML = '&#8377;0';
+      cartSubtotalEl.innerHTML = '$0';
       cartDiscountRow.style.display = 'none';
-      cartTotalEl.innerHTML = '&#8377;0';
+      cartTotalEl.innerHTML = '$0';
       return;
     }
 
@@ -464,7 +464,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <img src="${item.img}" alt="${item.name}" class="cart-item-img">
         <div class="cart-item-info">
           <div class="cart-item-name">${item.name}</div>
-          <div class="cart-item-price">&#8377;${item.price} each &middot; &#8377;${itemSubtotal}</div>
+          <div class="cart-item-price">$${item.price} each &middot; $${itemSubtotal}</div>
         </div>
         <div class="cart-qty-ctrl">
           <button class="cart-qty-btn" data-action="decrease" data-id="${item.id}">&minus;</button>
@@ -480,13 +480,13 @@ document.addEventListener('DOMContentLoaded', () => {
       const discount = Math.round(subtotal * 0.1);
       finalTotal = subtotal - discount;
       cartDiscountRow.style.display = 'flex';
-      cartDiscountAmountEl.innerHTML = `-&#8377;${discount}`;
+      cartDiscountAmountEl.innerHTML = `-$${discount}`;
     } else {
       cartDiscountRow.style.display = 'none';
     }
 
-    cartSubtotalEl.innerHTML = `&#8377;${subtotal}`;
-    cartTotalEl.innerHTML = `&#8377;${finalTotal}`;
+    cartSubtotalEl.innerHTML = `$${subtotal}`;
+    cartTotalEl.innerHTML = `$${finalTotal}`;
 
     cartItemsList.querySelectorAll('.cart-qty-btn').forEach((b) => {
       b.addEventListener('click', () => {

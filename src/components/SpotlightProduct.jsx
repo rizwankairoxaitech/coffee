@@ -10,7 +10,7 @@ export default function SpotlightProduct() {
   const product = {
     id: 99,
     name: 'Organic Brunch Blend Tin (250g)',
-    price: 480,
+    price: 18,
     img: 'assets/images/packaging.jpg',
   };
 
@@ -75,7 +75,7 @@ export default function SpotlightProduct() {
                 className="w-full sm:w-auto justify-center bg-neutral-950 hover:bg-neutral-800 text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider px-6 sm:px-8 py-3.5 sm:py-4 rounded-full shadow-xl flex items-center gap-3 transition-all text-center"
               >
                 <ShoppingBag size={18} />
-                <span>Add Tin to Order &middot; &#8377;{product.price * quantity}</span>
+                <span>Add Tin to Order &middot; ${product.price * quantity}</span>
               </motion.button>
             </div>
           </div>

@@ -22,7 +22,7 @@ export default function CartDrawer() {
     if (cart.length === 0) return;
     setIsCartOpen(false);
     alert(
-      `🎉 ORDER RECEIVED AT THE OPEN CUP BY HOT CATCH!\n\nTotal Paid: ₹${total}\nPickup/Dine: No. 1, 13th Avenue, Harrington Rd, Chetpet, Chennai.\nHotline: 077088 11068\n\nYour artisan meal & coffee are being prepared!`
+      `🎉 ORDER RECEIVED AT THE OPEN CUP BY HOT CATCH!\n\nTotal Paid: $${total}\nPickup/Dine: No. 1, 13th Avenue, Harrington Rd, Chetpet, Chennai.\nHotline: 077088 11068\n\nYour artisan meal & coffee are being prepared!`
     );
     clearCart();
     showToast('🎉 Order placed successfully! See you at Harrington Rd.');
@@ -93,7 +93,7 @@ export default function CartDrawer() {
                         {item.name}
                       </h4>
                       <div className="text-xs font-bold text-neutral-600 mt-0.5">
-                        &#8377;{item.price} each &middot; &#8377;{item.price * item.qty}
+                        ${item.price} each &middot; ${item.price * item.qty}
                       </div>
                     </div>
 
@@ -149,20 +149,20 @@ export default function CartDrawer() {
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between text-neutral-600">
                     <span>Subtotal</span>
-                    <span className="font-bold text-neutral-950">&#8377;{subtotal}</span>
+                    <span className="font-bold text-neutral-950">${subtotal}</span>
                   </div>
 
                   {applyIdDiscount && (
                     <div className="flex justify-between text-emerald-600 font-bold">
                       <span>Flat 10% ID Discount</span>
-                      <span>-&#8377;{discountAmount}</span>
+                      <span>-${discountAmount}</span>
                     </div>
                   )}
 
                   <div className="flex justify-between text-lg font-black text-neutral-950 pt-2 border-t border-neutral-200">
                     <span>TOTAL</span>
                     <span className="font-display text-2xl text-neutral-950">
-                      &#8377;{total}
+                      ${total}
                     </span>
                   </div>
                 </div>
