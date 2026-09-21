@@ -22,9 +22,10 @@ export const RECIPES = [
         id: "bean-1",
         name: "Roasted Coffee Bean",
         src: "/assets/ingredients/coffee-bean.png",
-        initial: { x: "12%", y: "22%", size: 110, rotate: -35 },
-        speed: 1.35,
-        parallax: { x: -45, y: -90, rotate: 60 },
+        initial: { x: "18%", y: "22%", size: 90, rotate: -35 },
+        mobile: { x: "11%", y: "17%", size: 68, rotate: -35 },
+        speed: 1.2,
+        parallax: { x: -30, y: -70, rotate: 45 },
         blur: "0px"
       },
       {
@@ -32,6 +33,7 @@ export const RECIPES = [
         name: "Artisan Ice Block",
         src: "/assets/ingredients/ice-cube.png",
         initial: { x: "82%", y: "18%", size: 135, rotate: 25 },
+        mobile: { x: "83%", y: "19%", size: 72, rotate: 25 },
         speed: 1.8,
         parallax: { x: 50, y: -120, rotate: -45 },
         blur: "0.5px"
@@ -41,6 +43,7 @@ export const RECIPES = [
         name: "Single Origin Bean",
         src: "/assets/ingredients/coffee-bean.png",
         initial: { x: "88%", y: "68%", size: 95, rotate: 40 },
+        mobile: { x: "83%", y: "73%", size: 68, rotate: 40 },
         speed: 0.9,
         parallax: { x: 35, y: -60, rotate: 90 },
         blur: "0px"
@@ -50,6 +53,7 @@ export const RECIPES = [
         name: "Chilled Ice Shard",
         src: "/assets/ingredients/ice-cube.png",
         initial: { x: "16%", y: "74%", size: 120, rotate: -20 },
+        mobile: { x: "14%", y: "77%", size: 70, rotate: -20 },
         speed: 1.6,
         parallax: { x: -30, y: -100, rotate: 40 },
         blur: "0.8px"
@@ -59,6 +63,7 @@ export const RECIPES = [
         name: "Fresh Mint Leaf",
         src: "/assets/ingredients/mint-leaf.png",
         initial: { x: "24%", y: "42%", size: 105, rotate: 55 },
+        mobile: { x: "7%", y: "46%", size: 60, rotate: 45 },
         speed: 1.1,
         parallax: { x: -25, y: -70, rotate: -40 },
         blur: "0px"
@@ -128,6 +133,7 @@ export const RECIPES = [
         name: "Glazed Wild Strawberry",
         src: "/assets/ingredients/strawberry.png",
         initial: { x: "14%", y: "24%", size: 130, rotate: 20 },
+        mobile: { x: "13%", y: "17%", size: 75, rotate: 20 },
         speed: 1.4,
         parallax: { x: -40, y: -90, rotate: 50 },
         blur: "0px"
@@ -137,6 +143,7 @@ export const RECIPES = [
         name: "Wild Mountain Blackberry",
         src: "/assets/ingredients/blackberry.png",
         initial: { x: "84%", y: "22%", size: 115, rotate: -25 },
+        mobile: { x: "82%", y: "19%", size: 65, rotate: -25 },
         speed: 1.7,
         parallax: { x: 45, y: -110, rotate: -70 },
         blur: "0.5px"
@@ -146,6 +153,7 @@ export const RECIPES = [
         name: "Sicilian Lemon Slice",
         src: "/assets/ingredients/lemon-slice.png",
         initial: { x: "86%", y: "70%", size: 135, rotate: 30 },
+        mobile: { x: "82%", y: "75%", size: 72, rotate: 30 },
         speed: 1.0,
         parallax: { x: 30, y: -75, rotate: 60 },
         blur: "0.8px"
@@ -155,6 +163,7 @@ export const RECIPES = [
         name: "Fresh Garden Mint",
         src: "/assets/ingredients/mint-leaf.png",
         initial: { x: "18%", y: "72%", size: 110, rotate: -40 },
+        mobile: { x: "13%", y: "76%", size: 65, rotate: -40 },
         speed: 1.5,
         parallax: { x: -35, y: -95, rotate: 80 },
         blur: "0px"
@@ -164,6 +173,7 @@ export const RECIPES = [
         name: "Dark Gloss Blackberry",
         src: "/assets/ingredients/blackberry.png",
         initial: { x: "26%", y: "45%", size: 95, rotate: 45 },
+        mobile: { x: "8%", y: "44%", size: 55, rotate: 35 },
         speed: 1.2,
         parallax: { x: -20, y: -65, rotate: -35 },
         blur: "0px"
@@ -235,6 +245,7 @@ export const RECIPES = [
         name: "Ripe Avocado Crescent",
         src: "/assets/ingredients/avocado-slice.png",
         initial: { x: "12%", y: "20%", size: 140, rotate: -25 },
+        mobile: { x: "13%", y: "17%", size: 78, rotate: -25 },
         speed: 1.5,
         parallax: { x: -45, y: -100, rotate: 45 },
         blur: "0px"
@@ -244,6 +255,7 @@ export const RECIPES = [
         name: "Crushed Chili Flake",
         src: "/assets/ingredients/chili-flake.png",
         initial: { x: "85%", y: "24%", size: 105, rotate: 35 },
+        mobile: { x: "82%", y: "19%", size: 65, rotate: 35 },
         speed: 1.8,
         parallax: { x: 45, y: -120, rotate: 110 },
         blur: "0.5px"
@@ -253,6 +265,7 @@ export const RECIPES = [
         name: "Crisp Pea Microgreen",
         src: "/assets/ingredients/microgreen.png",
         initial: { x: "86%", y: "72%", size: 115, rotate: -30 },
+        mobile: { x: "82%", y: "75%", size: 68, rotate: -30 },
         speed: 1.1,
         parallax: { x: 35, y: -70, rotate: -60 },
         blur: "0.8px"
@@ -262,6 +275,7 @@ export const RECIPES = [
         name: "Sun-Dried Pepper Shard",
         src: "/assets/ingredients/chili-flake.png",
         initial: { x: "16%", y: "75%", size: 95, rotate: 60 },
+        mobile: { x: "13%", y: "76%", size: 60, rotate: 60 },
         speed: 1.3,
         parallax: { x: -30, y: -85, rotate: -80 },
         blur: "0px"
@@ -271,6 +285,7 @@ export const RECIPES = [
         name: "Fresh Coriander Leaf",
         src: "/assets/ingredients/mint-leaf.png",
         initial: { x: "28%", y: "44%", size: 105, rotate: -15 },
+        mobile: { x: "8%", y: "45%", size: 60, rotate: -35 },
         speed: 1.2,
         parallax: { x: -20, y: -65, rotate: 45 },
         blur: "0.5px"

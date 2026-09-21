@@ -3,6 +3,14 @@ import { RECIPES } from "../data/recipes";
 
 export default function FloatingIngredients({ scrollProgress }) {
   const [hoveredId, setHoveredId] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  React.useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 640);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
 
   return (
     <div style={{
@@ -49,11 +57,19 @@ export default function FloatingIngredients({ scrollProgress }) {
             }}
           >
             {recipe.floatingIngredients.map((ing) => {
-              // Gentle organic micro-offset per ingredient
-              const offsetX = delta * ing.parallax.x * ing.speed * 0.4;
-              const offsetY = delta * ing.parallax.y * ing.speed * 0.4;
-              const rotation = ing.initial.rotate + delta * ing.parallax.rotate;
+              // Mobile-specific position overrides (leaves desktop 100% untouched)
+              const posX = isMobile && ing.mobile?.x ? ing.mobile.x : ing.initial.x;
+              const posY = isMobile && ing.mobile?.y ? ing.mobile.y : ing.initial.y;
+              const itemSize = isMobile && ing.mobile?.size ? ing.mobile.size : ing.initial.size;
+              const itemRotate = isMobile && ing.mobile?.rotate !== undefined ? ing.mobile.rotate : ing.initial.rotate;
+
+              // Gentle organic micro-offset per ingredient (0.4 on desktop as originally deployed)
+              const offsetFactor = isMobile ? 0.14 : 0.4;
+              const offsetX = delta * ing.parallax.x * ing.speed * offsetFactor;
+              const offsetY = delta * ing.parallax.y * ing.speed * offsetFactor;
+              const rotation = itemRotate + delta * ing.parallax.rotate;
               const isHovered = hoveredId === ing.id;
+              const scale = isMobile ? (ing.mobile?.scale || 0.58) * (isHovered ? 1.25 : 1) : (isHovered ? 1.25 : 1);
 
               return (
                 <div
@@ -62,11 +78,14 @@ export default function FloatingIngredients({ scrollProgress }) {
                   onMouseLeave={() => setHoveredId(null)}
                   style={{
                     position: "absolute",
-                    left: ing.initial.x,
-                    top: ing.initial.y,
-                    width: `${ing.initial.size}px`,
-                    height: `${ing.initial.size}px`,
-                    transform: `translate3d(${offsetX}px, ${offsetY}px, 0) rotate(${rotation}deg) scale(${isHovered ? 1.25 : 1})`,
+                    left: posX,
+                    top: posY,
+                    width: `${itemSize}px`,
+                    height: `${itemSize}px`,
+                    transformOrigin: "center center",
+                    transform: isMobile
+                      ? `translate3d(${offsetX}px, ${offsetY}px, 0) translate(-50%, -50%) rotate(${rotation}deg) scale(${scale})`
+                      : `translate3d(${offsetX}px, ${offsetY}px, 0) rotate(${rotation}deg) scale(${scale})`,
                     transition: "transform 0.15s cubic-bezier(0.16, 1, 0.3, 1)",
                     filter: `
                       drop-shadow(0 20px 30px rgba(0, 0, 0, 0.7))

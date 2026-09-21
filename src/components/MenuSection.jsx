@@ -84,27 +84,27 @@ export default function MenuSection() {
       : MENU_ITEMS.filter((item) => item.category === activeCategory);
 
   return (
-    <section id="menu" className="py-20 px-4 sm:px-6 lg:px-8">
+    <section id="menu" className="py-14 sm:py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Section Heading */}
-        <div className="text-center mb-14">
-          <span className="font-script text-3xl text-neutral-500 block mb-2">
+        <div className="text-center mb-8 sm:mb-14">
+          <span className="font-script text-2xl sm:text-3xl text-neutral-500 block mb-1 sm:mb-2">
             Freshly Smoked &amp; Brewed
           </span>
-          <h2 className="font-display text-5xl sm:text-6xl uppercase tracking-wider text-neutral-950">
+          <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl uppercase tracking-wider text-neutral-950">
             THE OPEN CUP MENU
           </h2>
         </div>
 
         {/* Category Switcher with Sliding Active Pill */}
-        <div className="flex items-center justify-center gap-2 sm:gap-3 flex-wrap mb-14">
+        <div className="flex items-center justify-start sm:justify-center gap-2 sm:gap-3 overflow-x-auto pb-3 sm:pb-0 scrollbar-none mb-8 sm:mb-14 px-1">
           {CATEGORIES.map((cat) => {
             const isActive = activeCategory === cat.id;
             return (
               <button
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
-                className={`relative px-6 py-3 rounded-full text-xs sm:text-sm font-extrabold uppercase tracking-wider transition-all z-10 ${
+                className={`relative px-4 sm:px-6 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-extrabold uppercase tracking-wider transition-all z-10 shrink-0 ${
                   isActive
                     ? 'text-white'
                     : 'glass-pill-studio text-neutral-600 hover:text-neutral-950 hover:bg-white'
@@ -124,7 +124,7 @@ export default function MenuSection() {
         </div>
 
         {/* Dynamic Card Grid with AnimatePresence */}
-        <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
           <AnimatePresence>
             {filteredItems.map((item) => (
               <motion.article
@@ -135,11 +135,11 @@ export default function MenuSection() {
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.4 }}
                 whileHover={{ y: -8 }}
-                className="glass-card-studio rounded-[30px] overflow-hidden flex flex-col group transition-all"
+                className="glass-card-studio rounded-[26px] sm:rounded-[30px] overflow-hidden flex flex-col group transition-all"
               >
                 {/* Image Container */}
-                <div className="relative w-full h-64 overflow-hidden bg-neutral-200">
-                  <span className="absolute top-4 right-4 glass-pill-studio text-neutral-900 text-[11px] font-black uppercase tracking-wider px-3.5 py-1 rounded-full shadow-md z-10">
+                <div className="relative w-full h-52 sm:h-64 overflow-hidden bg-neutral-200">
+                  <span className="absolute top-4 right-4 glass-pill-studio text-neutral-900 text-[10px] sm:text-[11px] font-black uppercase tracking-wider px-3 py-1 rounded-full shadow-md z-10">
                     {item.badge}
                   </span>
                   <img
@@ -150,22 +150,22 @@ export default function MenuSection() {
                 </div>
 
                 {/* Content */}
-                <div className="p-7 flex flex-col flex-grow">
-                  <div className="flex items-baseline justify-between gap-4 mb-3">
-                    <h3 className="font-display text-2xl uppercase tracking-wide text-neutral-950">
+                <div className="p-5 sm:p-7 flex flex-col flex-grow">
+                  <div className="flex items-baseline justify-between gap-4 mb-2 sm:mb-3">
+                    <h3 className="font-display text-xl sm:text-2xl uppercase tracking-wide text-neutral-950">
                       {item.name}
                     </h3>
-                    <span className="font-extrabold text-xl text-neutral-950">
+                    <span className="font-extrabold text-lg sm:text-xl text-neutral-950 shrink-0">
                       &#8377;{item.price}
                     </span>
                   </div>
 
-                  <p className="text-neutral-600 text-sm leading-relaxed mb-6 flex-grow">
+                  <p className="text-neutral-600 text-xs sm:text-sm leading-relaxed mb-5 sm:mb-6 flex-grow">
                     {item.desc}
                   </p>
 
-                  <div className="flex items-center justify-between pt-4 border-t border-neutral-200/80">
-                    <span className="text-xs font-bold text-neutral-500 flex items-center gap-1.5">
+                  <div className="flex items-center justify-between pt-3.5 sm:pt-4 border-t border-neutral-200/80">
+                    <span className="text-[11px] sm:text-xs font-bold text-neutral-500 flex items-center gap-1.5">
                       <Sparkles size={14} className="text-amber-600" />
                       {item.tag}
                     </span>
@@ -174,9 +174,9 @@ export default function MenuSection() {
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       onClick={() => addToCart(item, 1)}
-                      className="bg-neutral-950 hover:bg-neutral-800 text-white font-black text-xs uppercase tracking-wider px-5 py-2.5 rounded-full shadow-md flex items-center gap-2 transition-all"
+                      className="bg-neutral-950 hover:bg-neutral-800 text-white font-black text-xs uppercase tracking-wider px-4 sm:px-5 py-2 sm:py-2.5 rounded-full shadow-md flex items-center gap-2 transition-all shrink-0"
                     >
-                      <Plus size={15} />
+                      <Plus size={14} />
                       <span>Add to Tray</span>
                     </motion.button>
                   </div>

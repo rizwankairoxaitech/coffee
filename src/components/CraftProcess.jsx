@@ -38,23 +38,23 @@ const PILLARS = [
 
 export default function CraftProcess() {
   return (
-    <section id="craft" className="py-20 px-4 sm:px-6 lg:px-8">
+    <section id="craft" className="py-14 sm:py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="flex items-center gap-6 mb-12">
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-2xl bg-neutral-950 text-white flex items-center justify-center shadow-lg">
-              <Sparkles size={22} className="text-amber-400" />
+        <div className="flex items-center gap-3 sm:gap-6 mb-8 sm:mb-12">
+          <div className="flex items-center gap-3 shrink-0">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-neutral-950 text-white flex items-center justify-center shadow-lg">
+              <Sparkles size={20} className="text-amber-400" />
             </div>
-            <h2 className="font-display text-4xl sm:text-5xl uppercase tracking-wider text-neutral-950">
+            <h2 className="font-display text-2xl sm:text-4xl lg:text-5xl uppercase tracking-wider text-neutral-950">
               OUR ARTISAN WAY
             </h2>
           </div>
-          <div className="h-[2px] bg-gradient-to-r from-neutral-300/80 to-transparent flex-grow" />
+          <div className="h-[2px] bg-gradient-to-r from-neutral-300/80 to-transparent flex-grow hidden sm:block" />
         </div>
 
         {/* 4 Steps Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 mb-10 sm:mb-14">
           {STEPS.map((step, idx) => (
             <motion.article
               key={step.num}
@@ -65,8 +65,8 @@ export default function CraftProcess() {
               whileHover={{ y: -8 }}
               className="glass-card-studio rounded-3xl p-5 flex flex-col group transition-all"
             >
-              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-5">
-                <span className="absolute top-3 left-3 bg-neutral-950 text-white font-display text-lg w-10 h-10 rounded-full flex items-center justify-center shadow-md z-10 font-bold">
+              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-4 sm:mb-5">
+                <span className="absolute top-3 left-3 bg-neutral-950 text-white font-display text-base sm:text-lg w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center shadow-md z-10 font-bold">
                   {step.num}
                 </span>
                 <img
@@ -76,11 +76,11 @@ export default function CraftProcess() {
                 />
               </div>
 
-              <h3 className="font-display text-2xl uppercase tracking-wide text-neutral-950 mb-2">
+              <h3 className="font-display text-xl sm:text-2xl uppercase tracking-wide text-neutral-950 mb-2">
                 {step.title}
               </h3>
 
-              <p className="text-neutral-600 text-sm leading-relaxed flex-grow">
+              <p className="text-neutral-600 text-xs sm:text-sm leading-relaxed flex-grow">
                 {step.desc}
               </p>
             </motion.article>
@@ -88,19 +88,19 @@ export default function CraftProcess() {
         </div>
 
         {/* 4 Brand Pillars Bar */}
-        <div className="glass-card-studio rounded-3xl p-6 sm:p-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="glass-card-studio rounded-3xl p-5 sm:p-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {PILLARS.map((p, i) => {
             const Icon = p.icon;
             return (
-              <div key={i} className="flex flex-col items-center text-center gap-3 p-4 rounded-2xl hover:bg-white/40 transition-all">
-                <div className="w-14 h-14 rounded-full bg-neutral-950 text-white flex items-center justify-center shadow-md">
-                  <Icon size={24} />
+              <div key={i} className="flex flex-col items-center text-center gap-2.5 sm:gap-3 p-3 sm:p-4 rounded-2xl hover:bg-white/40 transition-all">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-neutral-950 text-white flex items-center justify-center shadow-md">
+                  <Icon size={22} />
                 </div>
                 <div>
-                  <h4 className="font-bold text-sm uppercase tracking-wider text-neutral-950 mb-1">
+                  <h4 className="font-bold text-xs sm:text-sm uppercase tracking-wider text-neutral-950 mb-1">
                     {p.title}
                   </h4>
-                  <p className="text-xs text-neutral-500">
+                  <p className="text-[11px] sm:text-xs text-neutral-500">
                     {p.sub}
                   </p>
                 </div>

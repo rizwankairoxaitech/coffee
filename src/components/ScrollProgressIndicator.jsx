@@ -11,18 +11,7 @@ export default function ScrollProgressIndicator({
   return (
     <>
       {/* Right-Side Vertical Scrubber */}
-      <div style={{
-        position: "absolute",
-        right: "36px",
-        top: "50%",
-        transform: "translateY(-50%)",
-        zIndex: 50,
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        gap: "16px",
-        pointerEvents: "auto"
-      }}>
+      <div className="absolute right-3 sm:right-9 top-1/2 -translate-y-1/2 z-50 flex flex-col items-center gap-3 sm:gap-4 pointer-events-auto">
         {RECIPES.map((recipe, index) => {
           const dist = Math.abs(scrollProgress - index);
           const isActive = dist < 0.5;
@@ -32,59 +21,43 @@ export default function ScrollProgressIndicator({
               key={recipe.id}
               onClick={() => onSelectRecipe(index)}
               title={`Jump to ${recipe.name}`}
-              style={{
-                position: "relative",
-                display: "flex",
-                alignItems: "center",
-                background: "transparent",
-                border: "none",
-                cursor: "pointer",
-                padding: "6px"
-              }}
+              className="relative flex items-center bg-transparent border-none cursor-pointer p-1.5 focus:outline-none"
             >
               {/* Outer Indicator Ring */}
-              <div style={{
-                width: isActive ? "28px" : "12px",
-                height: isActive ? "28px" : "12px",
-                borderRadius: "50%",
-                border: isActive ? `2px solid ${recipe.accentLight}` : "1.5px solid rgba(255, 255, 255, 0.25)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
-                boxShadow: isActive ? `0 0 16px ${recipe.glowColor}` : "none",
-                background: isActive ? "rgba(255,255,255,0.08)" : "transparent"
-              }}>
-                {/* Core Dot */}
-                <div style={{
-                  width: isActive ? "8px" : "4px",
-                  height: isActive ? "8px" : "4px",
+              <div
+                style={{
+                  width: isActive ? "26px" : "12px",
+                  height: isActive ? "26px" : "12px",
                   borderRadius: "50%",
-                  background: isActive ? recipe.accentLight : "rgba(255, 255, 255, 0.4)",
-                  transition: "all 0.3s ease"
-                }} />
+                  border: isActive ? `2px solid ${recipe.accentLight}` : "1.5px solid rgba(255, 255, 255, 0.25)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
+                  boxShadow: isActive ? `0 0 16px ${recipe.glowColor}` : "none",
+                  background: isActive ? "rgba(255,255,255,0.08)" : "transparent"
+                }}
+              >
+                {/* Core Dot */}
+                <div
+                  style={{
+                    width: isActive ? "8px" : "4px",
+                    height: isActive ? "8px" : "4px",
+                    borderRadius: "50%",
+                    background: isActive ? recipe.accentLight : "rgba(255, 255, 255, 0.4)",
+                    transition: "all 0.3s ease"
+                  }}
+                />
               </div>
 
-              {/* Hover Label */}
-              <span style={{
-                position: "absolute",
-                right: "38px",
-                padding: "4px 10px",
-                borderRadius: "6px",
-                background: "rgba(15, 15, 20, 0.8)",
-                border: "1px solid rgba(255, 255, 255, 0.1)",
-                backdropFilter: "blur(10px)",
-                fontSize: "10px",
-                fontWeight: "700",
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
-                color: "#ffffff",
-                whiteSpace: "nowrap",
-                opacity: isActive ? 1 : 0,
-                transform: isActive ? "translateX(0)" : "translateX(10px)",
-                transition: "all 0.3s ease",
-                pointerEvents: "none"
-              }}>
+              {/* Hover Label (Shown on desktop only to avoid covering mobile viewport) */}
+              <span
+                className="hidden md:block absolute right-[38px] px-2.5 py-1 rounded-md bg-[#0f0f14]/85 border border-white/10 backdrop-blur-md text-[10px] font-bold tracking-wider uppercase text-white whitespace-nowrap pointer-events-none transition-all duration-300"
+                style={{
+                  opacity: isActive ? 1 : 0,
+                  transform: isActive ? "translateX(0)" : "translateX(10px)",
+                }}
+              >
                 {recipe.number} — {recipe.name}
               </span>
             </button>
@@ -94,30 +67,11 @@ export default function ScrollProgressIndicator({
 
       {/* Subtle Scroll Down Prompt at Bottom Center */}
       {scrollProgress < 1.8 && (
-        <div style={{
-          position: "absolute",
-          bottom: "16px",
-          left: "50%",
-          transform: "translateX(-50%)",
-          zIndex: 20,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          gap: "4px",
-          pointerEvents: "none",
-          opacity: 0.65,
-          animation: "ambientFloatSlow 3s ease-in-out infinite"
-        }}>
-          <span style={{
-            fontSize: "9px",
-            letterSpacing: "0.25em",
-            textTransform: "uppercase",
-            fontWeight: "700",
-            color: "rgba(255, 255, 255, 0.55)"
-          }}>
-            SCROLL TO EXPLORE
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-1 pointer-events-none opacity-80 float-slow text-center px-4 w-full">
+          <span className="text-[8px] sm:text-[9px] tracking-[0.22em] sm:tracking-[0.25em] uppercase font-bold text-white/70">
+            SCROLL TO EXPLORE &middot; TAP DISH FOR RECIPE
           </span>
-          <ChevronDown size={14} color={currentRecipe.accentLight} />
+          <ChevronDown size={13} color={currentRecipe.accentLight} />
         </div>
       )}
     </>

@@ -3,6 +3,14 @@ import { RECIPES } from "../data/recipes";
 
 export default function HeroRecipeCard({ scrollProgress, onOpenRecipe }) {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 640);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -101,13 +109,15 @@ export default function HeroRecipeCard({ scrollProgress, onOpenRecipe }) {
                 }}
               />
 
-              {/* Floating Cutout Food Image (Large Centerpiece) */}
+              {/* Floating Cutout Food Image (Exact Vercel Sizing on Desktop, Scaled on Mobile) */}
               <div
                 className="float-slow"
                 style={{
                   position: "relative",
-                  width: "clamp(520px, 50vw, 850px)",
-                  height: "clamp(540px, 72vh, 860px)",
+                  width: isMobile ? "clamp(240px, 64vw, 850px)" : "clamp(520px, 50vw, 850px)",
+                  height: isMobile ? "clamp(240px, 52vh, 860px)" : "clamp(540px, 72vh, 860px)",
+                  maxWidth: isMobile ? "90vw" : undefined,
+                  maxHeight: isMobile ? "56vh" : undefined,
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -121,12 +131,20 @@ export default function HeroRecipeCard({ scrollProgress, onOpenRecipe }) {
                     width: "100%",
                     height: "100%",
                     objectFit: "contain",
-                    transform: `scale(1.15) translate(${mousePos.x * -8}px, ${mousePos.y * -8}px)`,
-                    filter: `
-                      drop-shadow(0 35px 50px rgba(0, 0, 0, 0.8))
-                      drop-shadow(0 15px 25px rgba(0, 0, 0, 0.6))
-                      drop-shadow(0 0 45px ${recipe.glowColor})
-                    `,
+                    transform: isMobile
+                      ? `scale(1.08) translate(${mousePos.x * -6}px, ${mousePos.y * -6}px)`
+                      : `scale(1.15) translate(${mousePos.x * -8}px, ${mousePos.y * -8}px)`,
+                    filter: isMobile
+                      ? `
+                        drop-shadow(0 25px 40px rgba(0, 0, 0, 0.8))
+                        drop-shadow(0 10px 20px rgba(0, 0, 0, 0.6))
+                        drop-shadow(0 0 35px ${recipe.glowColor})
+                      `
+                      : `
+                        drop-shadow(0 35px 50px rgba(0, 0, 0, 0.8))
+                        drop-shadow(0 15px 25px rgba(0, 0, 0, 0.6))
+                        drop-shadow(0 0 45px ${recipe.glowColor})
+                      `,
                     transition: "transform 0.2s ease-out",
                     userSelect: "none",
                     pointerEvents: "auto"

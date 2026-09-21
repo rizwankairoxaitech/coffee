@@ -90,54 +90,54 @@ export default function ReviewsSection() {
   };
 
   return (
-    <section id="reviews" className="py-20 px-4 sm:px-6 lg:px-8">
+    <section id="reviews" className="py-14 sm:py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <span className="font-script text-3xl text-neutral-500 block mb-2">
+        <div className="text-center mb-8 sm:mb-12">
+          <span className="font-script text-2xl sm:text-3xl text-neutral-500 block mb-1 sm:mb-2">
             What Our Guests Say
           </span>
-          <h2 className="font-display text-5xl sm:text-6xl uppercase tracking-wider text-neutral-950">
+          <h2 className="font-display text-2xl sm:text-4xl lg:text-5xl uppercase tracking-wider text-neutral-950">
             4.7 ★ GOOGLE MAPS REVIEWS
           </h2>
         </div>
 
         {/* Rating Summary Banner with Gemini AI summary */}
-        <div className="glass-card-studio rounded-[34px] p-8 sm:p-12 mb-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          <div className="lg:col-span-3 flex items-center gap-5">
-            <div className="font-display text-6xl text-neutral-950 leading-none">
+        <div className="glass-card-studio rounded-[28px] sm:rounded-[34px] p-6 sm:p-12 mb-8 sm:mb-12 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+          <div className="lg:col-span-3 flex items-center gap-4 sm:gap-5">
+            <div className="font-display text-5xl sm:text-6xl text-neutral-950 leading-none">
               4.7
             </div>
             <div>
               <div className="flex text-amber-500 mb-1">
-                <Star size={18} fill="currentColor" />
-                <Star size={18} fill="currentColor" />
-                <Star size={18} fill="currentColor" />
-                <Star size={18} fill="currentColor" />
-                <Star size={18} fill="currentColor" />
+                <Star size={16} fill="currentColor" />
+                <Star size={16} fill="currentColor" />
+                <Star size={16} fill="currentColor" />
+                <Star size={16} fill="currentColor" />
+                <Star size={16} fill="currentColor" />
               </div>
-              <div className="text-xs font-black uppercase tracking-wider text-neutral-500">
+              <div className="text-[11px] sm:text-xs font-black uppercase tracking-wider text-neutral-500">
                 44+ Verified Reviews
               </div>
             </div>
           </div>
 
-          <div className="lg:col-span-7 border-t lg:border-t-0 lg:border-l border-neutral-200/80 pt-6 lg:pt-0 lg:pl-8">
-            <div className="inline-flex items-center gap-2 bg-neutral-950 text-white text-xs font-black uppercase tracking-wider px-3 py-1 rounded-full mb-3 shadow-sm">
+          <div className="lg:col-span-7 border-t lg:border-t-0 lg:border-l border-neutral-200/80 pt-5 lg:pt-0 lg:pl-8">
+            <div className="inline-flex items-center gap-2 bg-neutral-950 text-white text-xs font-black uppercase tracking-wider px-3 py-1 rounded-full mb-2 sm:mb-3 shadow-sm">
               <Sparkles size={14} className="text-amber-400" />
               <span>Summarized with Gemini</span>
             </div>
-            <p className="text-neutral-600 text-sm leading-relaxed italic">
+            <p className="text-neutral-600 text-xs sm:text-sm leading-relaxed italic">
               "Diners like this cafe's delicious food, with popular items including avocado toast, brisket, chimichurri, and grilled chicken. They also highlight the cozy, peaceful, and aesthetic ambiance, making it a great spot for relaxing or working. Guests mention the staff are friendly, attentive, and provide timely service."
             </p>
           </div>
 
-          <div className="lg:col-span-2 flex justify-end">
+          <div className="lg:col-span-2 flex justify-start lg:justify-end w-full lg:w-auto">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setIsWriteModalOpen(true)}
-              className="bg-neutral-950 hover:bg-neutral-800 text-white font-extrabold text-xs uppercase tracking-wider px-6 py-3.5 rounded-full shadow-md whitespace-nowrap"
+              className="w-full sm:w-auto text-center bg-neutral-950 hover:bg-neutral-800 text-white font-extrabold text-xs uppercase tracking-wider px-6 py-3.5 rounded-full shadow-md whitespace-nowrap"
             >
               Write a Review
             </motion.button>
@@ -145,12 +145,12 @@ export default function ReviewsSection() {
         </div>
 
         {/* Real Reviews 3-Column Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {reviewsList.map((rev, idx) => (
             <motion.article
               key={idx}
               whileHover={{ y: -6 }}
-              className="glass-card-studio rounded-3xl p-7 flex flex-col justify-between"
+              className="glass-card-studio rounded-3xl p-5 sm:p-7 flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center gap-3 mb-4">

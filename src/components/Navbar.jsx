@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ShoppingCart, Search, User, Menu, X } from 'lucide-react';
+import { ShoppingCart, Search, User, Menu, X, Sparkles } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 
 export default function Navbar({ onReopenLanding }) {
@@ -155,23 +155,31 @@ export default function Navbar({ onReopenLanding }) {
         </div>
       )}
 
+      {/* MOBILE BACKDROP OVERLAY */}
+      {mobileOpen && (
+        <div
+          className="fixed inset-0 top-20 bg-black/40 backdrop-blur-sm z-40 lg:hidden"
+          onClick={() => setMobileOpen(false)}
+        />
+      )}
+
       {/* MOBILE MENU DROPDOWN */}
       {mobileOpen && (
-        <div className="lg:hidden border-t border-neutral-200 bg-white px-6 py-6 space-y-4 shadow-xl">
+        <div className="lg:hidden relative z-50 border-t border-neutral-200 bg-white/95 backdrop-blur-xl px-6 py-6 space-y-4 shadow-2xl">
           <div className="space-y-3 pb-4 border-b border-neutral-200">
             {leftNav.concat(rightNav).map((item) => (
               <a
                 key={item.label}
                 href={item.href}
                 onClick={() => setMobileOpen(false)}
-                className="block text-[#1b2b3a] font-bold text-sm tracking-wider uppercase py-1 hover:text-[#c88a4b]"
+                className="block text-[#1b2b3a] font-bold text-sm tracking-wider uppercase py-1.5 hover:text-[#c88a4b] transition-colors"
               >
                 {item.label}
               </a>
             ))}
           </div>
 
-          <div className="pt-2 flex items-center gap-4">
+          <div className="pt-2 flex items-center gap-3">
             <button
               onClick={() => {
                 setMobileOpen(false);
@@ -187,9 +195,11 @@ export default function Navbar({ onReopenLanding }) {
                   setMobileOpen(false);
                   onReopenLanding();
                 }}
-                className="px-4 py-3 border border-neutral-300 rounded-full text-xs font-bold text-[#1b2b3a] uppercase tracking-wider hover:bg-neutral-50"
+                className="px-4 py-3 border border-neutral-300 rounded-full text-xs font-bold text-[#1b2b3a] uppercase tracking-wider hover:bg-neutral-50 flex items-center gap-1.5 shrink-0"
+                title="View animated cover story"
               >
-                Cover
+                <Sparkles size={13} className="text-amber-600" />
+                <span>View Cover</span>
               </button>
             )}
           </div>
@@ -198,3 +208,4 @@ export default function Navbar({ onReopenLanding }) {
     </header>
   );
 }
+

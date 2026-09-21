@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Sparkles, ShoppingCart, Search, User, Menu, X, Instagram, MapPin } from 'lucide-react';
 import { useCart } from '../context/CartContext';
@@ -315,24 +315,24 @@ export default function LandingHero({ onEnterMain, isVisible }) {
             </div>
 
             {/* =========================================================================
-                INSTAGRAM BIO GLASS CARD OVER VIDEO (EMONS STYLE)
+                INSTAGRAM BIO GLASS CARD OVER VIDEO (COMPACT & DOCKED LEFT)
                ========================================================================= */}
             <motion.div
               initial={{ opacity: 0, y: 35, scale: 0.96 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
               onClick={(e) => e.stopPropagation()}
-              className="absolute bottom-8 sm:bottom-12 left-4 sm:left-10 lg:left-14 z-40 max-w-[480px] w-[calc(100%-2rem)] sm:w-auto bg-white/88 backdrop-blur-2xl border border-white/80 rounded-[32px] p-6 sm:p-8 shadow-[0_25px_60px_-12px_rgba(0,0,0,0.3)] text-neutral-900 select-auto pointer-events-auto"
+              className="absolute bottom-3 sm:bottom-6 md:bottom-10 left-3 sm:left-6 md:left-10 z-40 w-[260px] sm:w-[320px] md:w-[360px] max-w-[85vw] max-h-[calc(100dvh-5.5rem)] overflow-y-auto bg-white/92 backdrop-blur-2xl border border-white/90 rounded-2xl sm:rounded-3xl p-3 sm:p-5 shadow-[0_20px_50px_-10px_rgba(0,0,0,0.35)] text-neutral-900 select-auto pointer-events-auto scrollbar-none"
             >
               {/* Profile Header Row: Round Badge + Username + Stats */}
-              <div className="flex items-center gap-3.5 sm:gap-4 mb-4">
+              <div className="flex items-center gap-2.5 sm:gap-3.5 mb-2 sm:mb-3">
                 {/* Round Circular Logo Badge */}
-                <div className="w-14 h-14 sm:w-[68px] sm:h-[68px] shrink-0 rounded-full bg-white border-2 border-[#5c3a28] p-0.5 shadow-md flex items-center justify-center">
-                  <div className="w-full h-full rounded-full border border-[#5c3a28]/40 flex flex-col items-center justify-center p-1 text-[#5c3a28] bg-[#fcfaf7]">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-13 md:h-13 shrink-0 rounded-full bg-white border-2 border-[#5c3a28] p-0.5 shadow-sm flex items-center justify-center">
+                  <div className="w-full h-full rounded-full border border-[#5c3a28]/40 flex flex-col items-center justify-center p-0.5 text-[#5c3a28] bg-[#fcfaf7]">
                     <svg
                       viewBox="0 0 48 38"
                       fill="none"
-                      className="w-6 h-6 stroke-[#5c3a28]"
+                      className="w-4 h-4 sm:w-5 sm:h-5 stroke-[#5c3a28]"
                       strokeWidth="2.2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -343,64 +343,61 @@ export default function LandingHero({ onEnterMain, isVisible }) {
                       <path d="M36 20H39C41.5 20 43 22 43 24C43 26 41.5 27.5 39 27.5H34" />
                       <path d="M9 32C15 34 33 34 39 32" strokeWidth="2.2" />
                     </svg>
-                    <span className="font-black text-[6px] uppercase tracking-wider text-[#5c3a28] leading-none mt-0.5">
-                      The Open Cup
-                    </span>
-                    <span className="text-[4.5px] text-[#5c3a28]/80 leading-none tracking-tight">
-                      Brewing Connections
+                    <span className="font-black text-[4.5px] sm:text-[5.5px] uppercase tracking-wider text-[#5c3a28] leading-none mt-0.5">
+                      Open Cup
                     </span>
                   </div>
                 </div>
 
                 {/* Profile Text & Stats */}
                 <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 flex-wrap">
-                    <span className="font-black text-base sm:text-lg text-neutral-950 tracking-tight">
+                  <div className="flex items-center gap-1.5 flex-wrap">
+                    <span className="font-black text-xs sm:text-sm md:text-base text-neutral-950 tracking-tight">
                       the.opencup
                     </span>
-                    <span className="bg-neutral-950/8 text-neutral-800 text-[10px] font-extrabold px-2 py-0.5 rounded-full uppercase tracking-wider">
+                    <span className="bg-neutral-950/10 text-neutral-800 text-[8px] sm:text-[9px] font-extrabold px-1.5 py-0.5 rounded-full uppercase tracking-wider">
                       Cafe
                     </span>
                   </div>
-                  <div className="text-xs text-neutral-500 font-medium truncate">
+                  <div className="text-[10px] sm:text-xs text-neutral-500 font-medium truncate">
                     The Open Cup by Hot Catch
                   </div>
-                  <div className="flex items-center gap-2.5 text-xs text-neutral-700 mt-1 font-semibold">
+                  <div className="flex items-center gap-1.5 text-[9px] sm:text-[11px] text-neutral-700 mt-0.5 font-semibold">
                     <span><strong className="text-neutral-950 font-black">71</strong> posts</span>
                     <span>&middot;</span>
-                    <span><strong className="text-neutral-950 font-black">1,400</strong> followers</span>
+                    <span><strong className="text-neutral-950 font-black">1.4k</strong> followers</span>
                     <span>&middot;</span>
                     <span><strong className="text-neutral-950 font-black">6</strong> following</span>
                   </div>
                 </div>
               </div>
 
-              {/* Bio Headline (Emons Reference Style Large Typography) */}
-              <h2 className="text-2xl sm:text-[28px] font-black text-neutral-950 tracking-tight leading-[1.12] mb-2.5">
+              {/* Bio Headline */}
+              <h2 className="text-xs sm:text-sm md:text-base font-black text-neutral-950 tracking-tight leading-snug mb-1 sm:mb-1.5">
                 {"A garden café in the heart of Chennai"}
               </h2>
 
               {/* Bio Subtitle & Offerings */}
-              <p className="text-neutral-600 text-xs sm:text-sm leading-relaxed mb-3 font-normal">
+              <p className="text-neutral-600 text-[10px] sm:text-xs leading-relaxed mb-1.5 sm:mb-2 line-clamp-2 sm:line-clamp-none font-normal">
                 Signature Coffee &amp; Desserts &middot; Smoky Grills &amp; Briskets in a tranquil rooftop setting.
               </p>
 
               {/* Location Badge */}
-              <div className="flex items-center gap-1.5 text-xs font-bold text-neutral-800 mb-6">
-                <span className="text-rose-500">??</span>
+              <div className="flex items-center gap-1 text-[10px] sm:text-xs font-bold text-neutral-800 mb-2.5 sm:mb-3.5">
+                <MapPin size={12} className="text-rose-600 shrink-0 sm:w-3.5 sm:h-3.5" />
                 <span>Harrington Road, Chennai</span>
               </div>
 
-              {/* Action Buttons (Emons Reference Style Pills) */}
-              <div className="flex items-center gap-3 flex-wrap">
+              {/* Action Buttons */}
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-1.5 sm:gap-2">
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
                     onEnterMain('#menu');
                   }}
-                  className="flex-1 sm:flex-initial bg-[#1b2b3a] hover:bg-[#14222d] text-white font-extrabold text-xs uppercase tracking-wider px-6 py-3.5 rounded-full shadow-lg transition-all duration-200 transform hover:scale-105 active:scale-95 text-center"
+                  className="flex-1 bg-[#1b2b3a] hover:bg-[#14222d] text-white font-extrabold text-[10px] sm:text-xs uppercase tracking-wider py-2 px-3 sm:py-2.5 sm:px-3.5 rounded-full shadow-md transition-all duration-200 transform hover:scale-[1.02] active:scale-95 text-center"
                 >
-                  Explore Live Menu &rarr;
+                  Explore Menu &rarr;
                 </button>
 
                 <button
@@ -409,9 +406,9 @@ export default function LandingHero({ onEnterMain, isVisible }) {
                     onEnterMain('#reserve');
                     setIsReserveOpen(true);
                   }}
-                  className="flex-1 sm:flex-initial bg-[#c88a4b] hover:bg-[#b57a3e] text-neutral-950 font-black text-xs uppercase tracking-wider px-6 py-3.5 rounded-full shadow-lg transition-all duration-200 transform hover:scale-105 active:scale-95 text-center"
+                  className="flex-1 bg-[#c88a4b] hover:bg-[#b57a3e] text-neutral-950 font-black text-[10px] sm:text-xs uppercase tracking-wider py-2 px-3 sm:py-2.5 sm:px-3.5 rounded-full shadow-md transition-all duration-200 transform hover:scale-[1.02] active:scale-95 text-center"
                 >
-                  Find a Table
+                  Book Table
                 </button>
 
                 <a
@@ -419,28 +416,28 @@ export default function LandingHero({ onEnterMain, isVisible }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={(e) => e.stopPropagation()}
-                  className="p-3 rounded-full border border-neutral-300 hover:border-neutral-950 text-neutral-700 hover:text-neutral-950 hover:bg-white transition-all shadow-sm"
+                  className="self-center sm:self-auto p-1.5 sm:p-2 rounded-full border border-neutral-300 hover:border-neutral-950 text-neutral-700 hover:text-neutral-950 hover:bg-white transition-all shadow-sm flex items-center justify-center shrink-0"
                   title="Visit Instagram @the.opencup"
                 >
-                  <Instagram size={17} />
+                  <Instagram size={13} className="sm:w-3.5 sm:h-3.5" />
                 </a>
               </div>
             </motion.div>
 
-            {/* Floating Cue Button (Right Bottom) */}
+            {/* Floating Cue Button */}
             <div
-              className="absolute bottom-8 sm:bottom-12 right-6 sm:right-12 z-40 hidden sm:flex flex-col items-center gap-2 cursor-pointer transition-transform duration-300 hover:scale-105"
+              className="absolute top-20 right-3 sm:top-auto sm:bottom-12 sm:right-12 z-40 flex flex-col items-center gap-2 cursor-pointer transition-transform duration-300 hover:scale-105 active:scale-95"
               onClick={(e) => {
                 e.stopPropagation();
                 onEnterMain();
               }}
             >
-              <div className="flex items-center gap-2.5 bg-neutral-950/85 backdrop-blur-xl px-6 py-3 rounded-full border border-white/20 shadow-[0_12px_30px_rgba(0,0,0,0.3)] text-white hover:bg-white hover:text-neutral-950 transition-all duration-300">
-                <Sparkles size={13} className="text-amber-400 transition-colors" />
-                <span className="text-[11px] font-black uppercase tracking-[0.25em]">
+              <div className="flex items-center gap-2 bg-neutral-950/85 backdrop-blur-xl px-3.5 py-1.5 sm:px-6 sm:py-3 rounded-full border border-white/20 shadow-[0_12px_30px_rgba(0,0,0,0.3)] text-white hover:bg-white hover:text-neutral-950 transition-all duration-300">
+                <Sparkles size={12} className="text-amber-400 transition-colors" />
+                <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.18em] sm:tracking-[0.25em]">
                   Enter Experience
                 </span>
-                <ChevronDown size={14} className="animate-bounce" />
+                <ChevronDown size={13} className="animate-bounce" />
               </div>
             </div>
           </div>

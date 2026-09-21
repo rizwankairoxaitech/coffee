@@ -40,76 +40,76 @@ export default function ReservationSection() {
   };
 
   return (
-    <section id="reserve" className="py-20 px-4 sm:px-6 lg:px-8">
+    <section id="reserve" className="py-14 sm:py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch">
           {/* Location Info Card Left */}
-          <div className="lg:col-span-5 glass-card-studio rounded-[38px] p-8 sm:p-12 flex flex-col justify-between">
+          <div className="lg:col-span-5 glass-card-studio rounded-[28px] sm:rounded-[38px] p-6 sm:p-12 flex flex-col justify-between">
             <div>
-              <div className="inline-flex items-center gap-2 bg-neutral-950 text-white px-3.5 py-1 rounded-full text-xs font-bold mb-6 shadow-sm">
+              <div className="inline-flex items-center gap-2 bg-neutral-950 text-white px-3.5 py-1 rounded-full text-xs font-bold mb-5 sm:mb-6 shadow-sm">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
                 <span>Open Now &middot; Closes 11:00 PM</span>
               </div>
 
-              <h2 className="font-display text-4xl sm:text-5xl uppercase tracking-wider mb-8 text-neutral-950">
+              <h2 className="font-display text-2xl sm:text-4xl lg:text-5xl uppercase tracking-wider mb-6 sm:mb-8 text-neutral-950">
                 VISIT THE OPEN CUP
               </h2>
 
-              <div className="space-y-6 mb-10">
-                <div className="flex items-start gap-4">
+              <div className="space-y-5 sm:space-y-6 mb-8 sm:mb-10">
+                <div className="flex items-start gap-3.5 sm:gap-4">
                   <div className="w-10 h-10 rounded-2xl bg-neutral-950 flex items-center justify-center text-white flex-shrink-0 shadow-md">
-                    <MapPin size={20} />
+                    <MapPin size={18} />
                   </div>
                   <div>
-                    <h5 className="text-xs font-black uppercase tracking-wider text-neutral-500 mb-1">
+                    <h5 className="text-xs font-black uppercase tracking-wider text-neutral-500 mb-0.5 sm:mb-1">
                       Address &amp; Landmark
                     </h5>
-                    <p className="text-sm text-neutral-800 leading-snug">
+                    <p className="text-xs sm:text-sm text-neutral-800 leading-snug">
                       No. 1, 13th Avenue, 1/1, Harrington Rd, Chetpet, Chennai, Tamil Nadu 600031
                     </p>
-                    <p className="text-xs text-neutral-500 mt-1">Plus Code: 369Q+V8 Chennai</p>
+                    <p className="text-[11px] sm:text-xs text-neutral-500 mt-0.5 sm:mt-1">Plus Code: 369Q+V8 Chennai</p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
+                <div className="flex items-start gap-3.5 sm:gap-4">
                   <div className="w-10 h-10 rounded-2xl bg-neutral-950 flex items-center justify-center text-white flex-shrink-0 shadow-md">
-                    <Phone size={20} />
+                    <Phone size={18} />
                   </div>
                   <div>
-                    <h5 className="text-xs font-black uppercase tracking-wider text-neutral-500 mb-1">
+                    <h5 className="text-xs font-black uppercase tracking-wider text-neutral-500 mb-0.5 sm:mb-1">
                       Table Hotline
                     </h5>
                     <a
                       href="tel:07708811068"
-                      className="text-base font-extrabold text-neutral-950 hover:underline transition-colors"
+                      className="text-sm sm:text-base font-extrabold text-neutral-950 hover:underline transition-colors"
                     >
                       077088 11068
                     </a>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
+                <div className="flex items-start gap-3.5 sm:gap-4">
                   <div className="w-10 h-10 rounded-2xl bg-neutral-950 flex items-center justify-center text-white flex-shrink-0 shadow-md">
-                    <Clock size={20} />
+                    <Clock size={18} />
                   </div>
                   <div>
-                    <h5 className="text-xs font-black uppercase tracking-wider text-neutral-500 mb-1">
+                    <h5 className="text-xs font-black uppercase tracking-wider text-neutral-500 mb-0.5 sm:mb-1">
                       Operating Hours
                     </h5>
-                    <p className="text-sm text-neutral-800">Monday &ndash; Sunday: 9:00 AM &ndash; 11:00 PM</p>
-                    <p className="text-xs text-neutral-500">Dine-in &middot; Takeaway &middot; Delivery</p>
+                    <p className="text-xs sm:text-sm text-neutral-800">Monday &ndash; Sunday: 9:00 AM &ndash; 11:00 PM</p>
+                    <p className="text-[11px] sm:text-xs text-neutral-500">Dine-in &middot; Takeaway &middot; Delivery</p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
+                <div className="flex items-start gap-3.5 sm:gap-4">
                   <div className="w-10 h-10 rounded-2xl bg-neutral-950 flex items-center justify-center text-white flex-shrink-0 shadow-md">
-                    <Car size={20} />
+                    <Car size={18} />
                   </div>
                   <div>
-                    <h5 className="text-xs font-black uppercase tracking-wider text-neutral-500 mb-1">
+                    <h5 className="text-xs font-black uppercase tracking-wider text-neutral-500 mb-0.5 sm:mb-1">
                       Parking &amp; Pet Amenities
                     </h5>
-                    <p className="text-sm text-neutral-800">
+                    <p className="text-xs sm:text-sm text-neutral-800">
                       Free street &amp; valet parking available &middot; Dogs allowed on rooftop deck
                     </p>
                   </div>
@@ -122,7 +122,7 @@ export default function ReservationSection() {
                 href="https://maps.app.goo.gl/qwD1UZiSouimGXPw9"
                 target="_blank"
                 rel="noopener"
-                className="inline-flex items-center gap-2 bg-neutral-950 text-white hover:bg-neutral-800 px-5 py-3 rounded-full text-xs font-black uppercase tracking-wider transition-all shadow-md"
+                className="flex-1 sm:flex-initial text-center inline-flex items-center justify-center gap-2 bg-neutral-950 text-white hover:bg-neutral-800 px-4 sm:px-5 py-3 rounded-full text-xs font-black uppercase tracking-wider transition-all shadow-md"
               >
                 <Navigation size={14} />
                 <span>Get Directions</span>
@@ -132,7 +132,7 @@ export default function ReservationSection() {
                 href="https://www.google.com/maps/reserve/v/dine/c/5JYWR_seGlU"
                 target="_blank"
                 rel="noopener"
-                className="inline-flex items-center gap-2 glass-pill-studio hover:bg-white px-5 py-3 rounded-full text-xs font-black uppercase tracking-wider transition-all text-neutral-900 shadow-sm"
+                className="flex-1 sm:flex-initial text-center inline-flex items-center justify-center gap-2 glass-pill-studio hover:bg-white px-4 sm:px-5 py-3 rounded-full text-xs font-black uppercase tracking-wider transition-all text-neutral-900 shadow-sm"
               >
                 <Calendar size={14} />
                 <span>Google Reserve</span>
@@ -141,11 +141,11 @@ export default function ReservationSection() {
           </div>
 
           {/* Reservation Booking Form Right */}
-          <div className="lg:col-span-7 glass-card-studio rounded-[38px] p-8 sm:p-12 flex flex-col justify-center">
-            <h3 className="font-display text-4xl sm:text-5xl uppercase tracking-wider text-neutral-950 mb-2">
+          <div className="lg:col-span-7 glass-card-studio rounded-[28px] sm:rounded-[38px] p-6 sm:p-12 flex flex-col justify-center">
+            <h3 className="font-display text-2xl sm:text-4xl lg:text-5xl uppercase tracking-wider text-neutral-950 mb-2">
               RESERVE A TABLE
             </h3>
-            <p className="text-neutral-500 text-sm mb-8">
+            <p className="text-neutral-500 text-xs sm:text-sm mb-6 sm:mb-8">
               Book your cozy indoor corner or breezy rooftop table with instant confirmation.
             </p>
 

@@ -47,21 +47,21 @@ export default function CartDrawer() {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 28, stiffness: 280 }}
-            className="fixed top-0 right-0 w-full max-w-md h-full bg-[#f0f3f8]/95 backdrop-blur-2xl border-l border-neutral-300 z-50 shadow-2xl flex flex-col"
+            className="fixed top-0 right-0 w-full sm:max-w-md h-full bg-[#f0f3f8]/95 backdrop-blur-2xl border-l border-neutral-300 z-50 shadow-2xl flex flex-col"
           >
             {/* Header */}
-            <div className="bg-white/80 backdrop-blur-md text-neutral-950 p-6 flex items-center justify-between border-b border-neutral-200">
+            <div className="bg-white/80 backdrop-blur-md text-neutral-950 p-4 sm:p-6 flex items-center justify-between border-b border-neutral-200">
               <div className="flex items-center gap-3">
-                <ShoppingBag size={22} className="text-neutral-950" />
-                <h3 className="font-display text-2xl uppercase tracking-wide">
+                <ShoppingBag size={20} className="text-neutral-950" />
+                <h3 className="font-display text-xl sm:text-2xl uppercase tracking-wide">
                   YOUR ORDER TRAY
                 </h3>
               </div>
               <button
                 onClick={() => setIsCartOpen(false)}
-                className="text-neutral-500 hover:text-neutral-950 transition-colors"
+                className="text-neutral-500 hover:text-neutral-950 transition-colors p-1"
               >
-                <X size={22} />
+                <X size={20} />
               </button>
             </div>
 

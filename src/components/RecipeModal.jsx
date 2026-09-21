@@ -75,70 +75,40 @@ export default function RecipeModal({ recipe, isOpen, onClose }) {
     }} onClick={onClose}>
       {/* Slide-in Drawer Container */}
       <div
+        className="w-full max-w-[680px] h-full max-h-[100dvh] flex flex-col overflow-y-auto p-5 sm:p-10 relative shadow-2xl"
         style={{
-          width: "100%",
-          maxWidth: "680px",
-          height: "100vh",
           background: "linear-gradient(180deg, #13131a 0%, #0c0c10 100%)",
           borderLeft: "1px solid rgba(255, 255, 255, 0.14)",
           boxShadow: "-20px 0 60px rgba(0, 0, 0, 0.7)",
-          display: "flex",
-          flexDirection: "column",
-          overflowY: "auto",
-          padding: "36px 40px",
-          position: "relative"
         }}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
         <button
           onClick={onClose}
+          className="absolute top-4 right-4 sm:top-7 sm:right-7 w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center cursor-pointer transition-all z-20 hover:bg-white/20"
           style={{
-            position: "absolute",
-            top: "28px",
-            right: "28px",
-            width: "40px",
-            height: "40px",
-            borderRadius: "50%",
             background: "rgba(255, 255, 255, 0.08)",
             border: "1px solid rgba(255, 255, 255, 0.15)",
             color: "#ffffff",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            cursor: "pointer",
-            transition: "all 0.2s ease"
           }}
         >
-          <X size={20} />
+          <X size={18} />
         </button>
 
         {/* Top Recipe Banner Card */}
-        <div style={{
-          display: "flex",
-          gap: "24px",
-          paddingBottom: "28px",
-          borderBottom: "1px solid rgba(255, 255, 255, 0.1)"
-        }}>
+        <div className="flex flex-col sm:flex-row gap-5 sm:gap-6 pb-6 border-b border-white/10 items-center sm:items-start text-center sm:text-left mt-4 sm:mt-0">
           <img
             src={recipe.mainImage}
             alt={recipe.name}
+            className="w-28 h-32 sm:w-32 sm:h-40 rounded-2xl object-cover shrink-0 shadow-xl"
             style={{
-              width: "130px",
-              height: "170px",
-              borderRadius: "18px",
-              objectFit: "cover",
               boxShadow: `0 10px 30px ${recipe.glowColor}, 0 0 0 1px rgba(255,255,255,0.15)`
             }}
           />
 
-          <div style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
-            <div style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "8px",
-              marginBottom: "6px"
-            }}>
+          <div className="flex flex-col justify-center flex-1 min-w-0">
+            <div className="flex items-center justify-center sm:justify-start gap-2 mb-1.5">
               <span style={{
                 fontFamily: "var(--font-hero)",
                 fontSize: "12px",
@@ -147,52 +117,31 @@ export default function RecipeModal({ recipe, isOpen, onClose }) {
               }}>
                 RECIPE {recipe.number}
               </span>
-              <span style={{
-                padding: "2px 8px",
-                borderRadius: "999px",
-                background: "rgba(255,255,255,0.08)",
-                fontSize: "10px",
-                fontWeight: "700",
-                letterSpacing: "0.08em",
-                textTransform: "uppercase",
-                color: "rgba(255,255,255,0.7)"
-              }}>
+              <span className="px-2 py-0.5 rounded-full bg-white/10 text-[10px] font-bold tracking-wider uppercase text-white/70">
                 {recipe.difficulty}
               </span>
             </div>
 
-            <h2 style={{
-              fontFamily: "var(--font-hero)",
-              fontSize: "32px",
-              fontWeight: "900",
-              lineHeight: "1.1",
-              color: "#ffffff",
-              marginBottom: "8px"
-            }}>
+            <h2 className="text-2xl sm:text-3xl font-black text-white mb-2 leading-tight">
               {recipe.name}
             </h2>
 
-            <p style={{
-              fontSize: "13px",
-              color: "rgba(255, 255, 255, 0.65)",
-              marginBottom: "16px",
-              lineHeight: "1.4"
-            }}>
+            <p className="text-xs sm:text-[13px] text-white/70 mb-3 sm:mb-4 leading-relaxed max-w-md">
               {recipe.description}
             </p>
 
             {/* Quick Metrics */}
-            <div style={{ display: "flex", gap: "16px" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "12px", color: "rgba(255,255,255,0.85)" }}>
-                <Clock size={14} color={recipe.accentLight} />
+            <div className="flex items-center justify-center sm:justify-start gap-4 flex-wrap text-xs text-white/90">
+              <div className="flex items-center gap-1.5">
+                <Clock size={13} color={recipe.accentLight} />
                 <span>{recipe.time}</span>
               </div>
-              <div style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "12px", color: "rgba(255,255,255,0.85)" }}>
-                <Users size={14} color={recipe.accentLight} />
+              <div className="flex items-center gap-1.5">
+                <Users size={13} color={recipe.accentLight} />
                 <span>{recipe.servings}</span>
               </div>
-              <div style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "12px", color: "rgba(255,255,255,0.85)" }}>
-                <Flame size={14} color={recipe.accentLight} />
+              <div className="flex items-center gap-1.5">
+                <Flame size={13} color={recipe.accentLight} />
                 <span>{recipe.calories}</span>
               </div>
             </div>
@@ -200,12 +149,7 @@ export default function RecipeModal({ recipe, isOpen, onClose }) {
         </div>
 
         {/* Tab Navigation */}
-        <div style={{
-          display: "flex",
-          gap: "10px",
-          marginTop: "24px",
-          marginBottom: "24px"
-        }}>
+        <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none my-5 shrink-0">
           {[
             { id: "ingredients", label: "Ingredients", count: recipe.ingredients.length },
             { id: "steps", label: "Method & Timer", count: recipe.instructions.length },
@@ -216,18 +160,11 @@ export default function RecipeModal({ recipe, isOpen, onClose }) {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
+                className="px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl text-xs font-bold whitespace-nowrap shrink-0 transition-all border"
                 style={{
-                  padding: "10px 18px",
-                  borderRadius: "12px",
                   background: isActive ? "rgba(255, 255, 255, 0.15)" : "rgba(255, 255, 255, 0.04)",
-                  border: isActive ? `1px solid ${recipe.accentLight}` : "1px solid rgba(255, 255, 255, 0.08)",
+                  borderColor: isActive ? recipe.accentLight : "rgba(255, 255, 255, 0.08)",
                   color: isActive ? "#ffffff" : "rgba(255, 255, 255, 0.6)",
-                  fontFamily: "var(--font-hero)",
-                  fontSize: "12px",
-                  fontWeight: "700",
-                  letterSpacing: "0.04em",
-                  cursor: "pointer",
-                  transition: "all 0.2s ease"
                 }}
               >
                 {tab.label} {tab.count && <span style={{ opacity: 0.6, marginLeft: "4px" }}>({tab.count})</span>}
@@ -235,6 +172,7 @@ export default function RecipeModal({ recipe, isOpen, onClose }) {
             );
           })}
         </div>
+
 
         {/* Tab Content 1: Ingredients Checklist */}
         {activeTab === "ingredients" && (
@@ -306,43 +244,26 @@ export default function RecipeModal({ recipe, isOpen, onClose }) {
         {activeTab === "steps" && (
           <div>
             {/* Interactive Cooking Timer Bar */}
-            <div style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              padding: "14px 20px",
-              borderRadius: "16px",
-              background: "rgba(255, 255, 255, 0.05)",
-              border: `1px solid ${recipe.glowColor}`,
-              marginBottom: "20px"
-            }}>
-              <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-3 p-3.5 sm:p-4 rounded-2xl bg-white/5 border border-white/10 mb-5">
+              <div className="flex items-center gap-3">
                 <Clock size={20} color={recipe.accentLight} />
                 <div>
-                  <div style={{ fontSize: "11px", color: "rgba(255, 255, 255, 0.5)", textTransform: "uppercase" }}>
+                  <div className="text-[10px] text-white/50 uppercase tracking-wider">
                     Prep Timer
                   </div>
-                  <div style={{ fontFamily: "var(--font-hero)", fontSize: "22px", fontWeight: "900", color: "#ffffff" }}>
+                  <div className="text-xl sm:text-2xl font-black text-white">
                     {formatTimer(timerSeconds)}
                   </div>
                 </div>
               </div>
 
-              <div style={{ display: "flex", gap: "8px" }}>
+              <div className="flex items-center gap-2 w-full sm:w-auto">
                 <button
                   onClick={() => setTimerRunning(!timerRunning)}
+                  className="flex-1 sm:flex-initial px-4 py-2 rounded-xl font-bold text-xs flex items-center justify-center gap-1.5 cursor-pointer border-none"
                   style={{
-                    padding: "8px 16px",
-                    borderRadius: "10px",
                     background: timerRunning ? "rgba(239, 68, 68, 0.2)" : recipe.accentLight,
                     color: timerRunning ? "#ef4444" : "#000000",
-                    border: "none",
-                    fontWeight: "700",
-                    fontSize: "12px",
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "6px",
-                    cursor: "pointer"
                   }}
                 >
                   {timerRunning ? <Pause size={14} /> : <Play size={14} />}
@@ -354,14 +275,7 @@ export default function RecipeModal({ recipe, isOpen, onClose }) {
                     setTimerRunning(false);
                     setTimerSeconds(180);
                   }}
-                  style={{
-                    padding: "8px",
-                    borderRadius: "10px",
-                    background: "rgba(255, 255, 255, 0.08)",
-                    color: "#ffffff",
-                    border: "none",
-                    cursor: "pointer"
-                  }}
+                  className="p-2 rounded-xl bg-white/10 text-white border-none cursor-pointer hover:bg-white/20"
                 >
                   <RotateCcw size={14} />
                 </button>
@@ -377,7 +291,7 @@ export default function RecipeModal({ recipe, isOpen, onClose }) {
                     key={step.step}
                     onClick={() => toggleStep(step.step)}
                     style={{
-                      padding: "18px 20px",
+                      padding: "16px 18px",
                       borderRadius: "16px",
                       background: isDone ? "rgba(34, 197, 94, 0.06)" : "rgba(255, 255, 255, 0.03)",
                       border: isDone ? "1px solid rgba(34, 197, 94, 0.3)" : "1px solid rgba(255, 255, 255, 0.08)",
@@ -430,37 +344,16 @@ export default function RecipeModal({ recipe, isOpen, onClose }) {
         {activeTab === "nutrition" && (
           <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
             {/* Nutritional Grid */}
-            <div style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(4, 1fr)",
-              gap: "12px"
-            }}>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3">
               {Object.entries(recipe.nutrition).map(([key, val]) => (
                 <div
                   key={key}
-                  style={{
-                    padding: "16px 12px",
-                    borderRadius: "14px",
-                    background: "rgba(255, 255, 255, 0.04)",
-                    border: "1px solid rgba(255, 255, 255, 0.08)",
-                    textAlign: "center"
-                  }}
+                  className="p-3.5 sm:p-4 rounded-xl bg-white/5 border border-white/10 text-center"
                 >
-                  <div style={{
-                    fontSize: "11px",
-                    textTransform: "uppercase",
-                    letterSpacing: "0.08em",
-                    color: "rgba(255, 255, 255, 0.5)",
-                    marginBottom: "6px"
-                  }}>
+                  <div className="text-[10px] uppercase tracking-wider text-white/50 mb-1">
                     {key}
                   </div>
-                  <div style={{
-                    fontFamily: "var(--font-hero)",
-                    fontSize: "18px",
-                    fontWeight: "900",
-                    color: recipe.accentLight
-                  }}>
+                  <div className="text-base sm:text-lg font-black" style={{ color: recipe.accentLight }}>
                     {val}
                   </div>
                 </div>
